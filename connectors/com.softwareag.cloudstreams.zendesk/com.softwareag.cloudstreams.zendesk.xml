@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rest-connector xmlns="http://www.softwareag.com/cloudstreams/metadata/handler/model" id="com.softwareag.cloudstreams.zendesk" version="1.0" group="Zendesk" name="Zendesk" displayName="Zendesk">
+    <connections>
+        <connection type="sagcloud" name="SAG_Connection" displayName="SAG_Connection">
+            <groups>
+                <group type="connection" name="connection" displayName="Connection">
+                    <description>Define the required connection configurations to initiate communication with the SaaS provider.</description>
+                    <fields>
+                        <field isRequired="true" isEncrypted="false" isHidden="false" isArray="false" defaultValue="https://software1861.zendesk.com" name="cn.providerUrl" displayName="Server URL">
+                            <description>The native provider endpoint target for the connection configuration</description>
+                        </field>
+                    </fields>
+                </group>
+                <group type="oauth_v20" name="oauth_v20" displayName="OAuth V2.0">
+                    <description>Define configurations needed for the OAuth version 2.0 authentication scheme.</description>
+                    <fields/>
+                </group>
+            </groups>
+        </connection>
+    </connections>
+    <services>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="default_resourcegroup" displayName="Default_ResourceGroup">
+            <documentModel packageName="." nsName="com.softwareag.cloudstreams.zendesk.default_resourcegroup.doctypes" useInlineModel="true"/>
+            <resources>
+                <mappings/>
+                <resource method="GET" path="/api/v2/tickets" type="SIMPLE" name="getlistticket" displayName="listticket">
+                    <mappings>
+                        <map isRequired="true" context="IN" name="Content-type">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Content-type</target>
+                        </map>
+                    </mappings>
+                    <parameters/>
+                    <responses>
+                        <response name="test_documentType" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="com.softwareag.cloudstreams.zendesk.default_resourcegroup.doctypes:test_documentType" excludeRoot="true" dimension="0"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+    </services>
+</rest-connector>

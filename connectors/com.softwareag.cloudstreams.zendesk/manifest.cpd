@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Connector-Key: com.softwareag.cloudstreams.zendesk
+Connector-Name: Zendesk
+Connector-Version: 1.0
+Connector-Handler: com.softwareag.cloudstreams.metadata.handler.rest.Res
+ tConnectorMetadataHandler
+Connector-State: Enabled
+Connector-Bundle-Vendor: ABHK
+Connector-Bundle-Version: 1.0
+Connector-Group: Zendesk
+Connector-Group-ID: com.softwareag.cloudstreams.zendesk
+Connector-Group-Version: 1.0
+Project: 
+
+Name: User-Defined
+Application-Version: 2.0
+Connector-Type: Custom
+applicationImageID: 
+

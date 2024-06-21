@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<services>
+    <cloudstreamsCollectionKeys serviceName="WmCloudStreams.RestVS">
+        <servicesKeys>
+            <keyDetails collectionKey="test:test1_cloudservice" connectorServiceName="test:test1_cloudservice"/>
+            <keyDetails collectionKey="test:test_cloudservice" connectorServiceName="test:test_cloudservice"/>
+        </servicesKeys>
+    </cloudstreamsCollectionKeys>
+</services>
